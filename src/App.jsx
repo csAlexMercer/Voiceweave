@@ -13,6 +13,8 @@ import CreateWeaveComponent from './components/weave/CreateWeaveComponent';
 import JoinWeaveComponent from './components/weave/JoinWeaveComponent';
 import MyWeaves from './components/weave/MyWeaves';
 import WeaveDashboard from './components/weave/WeaveDashboard';
+import CreatePollComponent from './components/poll/CreatePollComponent';
+import PollComponent from './components/poll/PollComponent';
 import './App.css';
 
 const Layout = ({ children }) => {

@@ -93,12 +93,12 @@ const AuthComponent = () => {
             >
                 Email
             </button>
-            <button
+            {/* <button
                 className={authMethod === 'phone' ? 'active' : ''}
                 onClick={() => setAuthMethod('phone')}
             >
                 Phone
-            </button>
+            </button> */}
             <button
                 className={authMethod === 'anonymous' ? 'active' : ''}
                 onClick={() => setAuthMethod('anonymous')}

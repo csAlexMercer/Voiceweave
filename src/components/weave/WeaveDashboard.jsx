@@ -7,9 +7,10 @@ import './WeaveComponents.css';
 
 const WeaveDashboard = () => {
     const [weave, setWeave] = useState(null);
+    const [polls, setPolls] = useState([]);
     const [loading, setLoading] = useState(true);
     const [showJoinCode, setShowJoinCode] = useState(false);
-    
+    const [filter, setFilter] = useState('all');
     const { weaveId } = useParams();
     const navigate = useNavigate();
 
@@ -19,13 +20,16 @@ const WeaveDashboard = () => {
 
     const loadWeaveDetails = async () => {
         try {
-        const weaveData = await getWeaveDetails(weaveId);
-        setWeave(weaveData);
+            const weaveData = await getWeaveDetails(weaveId);
+            setWeave(weaveData);
+            const { getWeavePolls } = await import('../../services/pollService');
+            const weavePolls = await getWeavePolls(weaveId);
+            setPolls(weavePolls);
         } catch (error) {
-        toast.error('Failed to load weave details');
-        console.error(error);
+            toast.error('Failed to load weave details');
+            console.error(error);
         } finally {
-        setLoading(false);
+            setLoading(false);
         }
     };
 

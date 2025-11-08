@@ -28,11 +28,24 @@ service cloud.firestore {
       }
       
       match /polls/{pollId} {
-        allow read, write: if isSignedIn();
+        aallow read: if isSignedIn();
+        allow create: if isSignedIn();
+        allow update: if isSignedIn() && 
+          (request.auth.uid == resource.data.createdBy ||
+          request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['votes', 'voters', 'status', 'commentCount']));
+        
+        allow delete: if isSignedIn() && 
+          request.auth.uid == resource.data.createdBy;
       }
 
       match /comments/{commentId} {
-        allow read, write: if isSignedIn();
+        allow read: if isSignedIn();   
+        allow create: if isSignedIn();
+        allow update: if isSignedIn() && 
+          request.auth.uid == resource.data.createdBy;
+        allow delete: if isSignedIn() && 
+          request.auth.uid == resource.data.createdBy;
       }
     }
 }
