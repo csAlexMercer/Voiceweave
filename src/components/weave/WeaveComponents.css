@@ -1,0 +1,681 @@
+
+.create-weave-container,
+.join-weave-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.create-weave-card,
+.join-weave-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.create-weave-card h2,
+.join-weave-card h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.weave-form,
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.char-count {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 12px;
+  color: #999;
+}
+
+.submit-btn,
+.primary-btn {
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled),
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.back-btn,
+.secondary-btn {
+  padding: 14px;
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
+
+.back-btn:hover,
+.secondary-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Success Card Styles */
+.weave-success-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weave-success-card {
+  max-width: 700px;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+}
+
+.weave-success-card h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.weave-title {
+  font-size: 20px;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.join-details {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+.qr-section,
+.code-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.qr-section h3,
+.code-section h3 {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.join-code-display {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 4px;
+  margin: 24px 0;
+}
+
+.copy-btn {
+  padding: 10px 24px;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.success-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.success-actions button {
+  flex: 1;
+}
+
+/* Join Weave Specific Styles */
+.join-code-input {
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.divider {
+  text-align: center;
+  position: relative;
+  margin: 24px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  background: white;
+  padding: 0 16px;
+  color: #999;
+  font-size: 14px;
+}
+
+.qr-scan-btn {
+  width: 100%;
+  padding: 14px;
+  background: #f5f5f5;
+  border: 2px dashed #667eea;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qr-scan-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+  border-style: solid;
+}
+
+.scanner-placeholder {
+  margin-top: 24px;
+  padding: 40px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.scanner-placeholder .note {
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* My Weaves Styles */
+.my-weaves-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f5f7fa;
+}
+
+.my-weaves-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.my-weaves-header h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.create-btn,
+.join-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.join-btn {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.join-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+.empty-state {
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.empty-state h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.empty-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Weaves Grid */
+.weaves-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.weave-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weave-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.weave-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.weave-card-header h3 {
+  font-size: 20px;
+  color: #333;
+  flex: 1;
+}
+
+.admin-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.weave-description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.weave-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-icon {
+  font-size: 20px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.weave-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.join-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.view-arrow {
+  font-size: 20px;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.weave-dashboard-container {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding-bottom: 40px;
+}
+
+.weave-dashboard-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 32px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-icon,
+.info-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background 0.3s ease;
+}
+
+.back-icon:hover,
+.info-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.weave-info {
+  flex: 1;
+}
+
+.weave-info h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.weave-info p {
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.join-code-banner {
+  background: white;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.join-code-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.join-code-content .label {
+  font-weight: 600;
+  color: #666;
+}
+
+.join-code-content .code {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
+  letter-spacing: 2px;
+}
+
+.copy-icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.copy-icon-btn:hover {
+  opacity: 1;
+}
+
+.weave-stats-bar {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 32px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-item .stat-icon {
+  font-size: 24px;
+}
+
+.stat-item .stat-text {
+  font-size: 16px;
+  color: #666;
+  font-weight: 600;
+}
+
+.dashboard-actions {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.create-poll-btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-poll-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.polls-section {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.polls-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.empty-polls {
+  background: white;
+  padding: 60px 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #999;
+}
+
+.loading-spinner,
+.error-message {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .my-weaves-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .create-btn,
+  .join-btn {
+    flex: 1;
+  }
+
+  .weaves-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .join-details {
+    flex-direction: column;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+
+  .weave-dashboard-header {
+    padding: 24px 16px;
+  }
+
+  .weave-info h1 {
+    font-size: 22px;
+  }
+}

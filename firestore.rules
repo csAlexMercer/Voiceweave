@@ -1,19 +1,38 @@
 rules_version = '2';
-
 service cloud.firestore {
-  match /databases/{database}/documents {
+    match /databases/{database}/documents {
+      
+      function isSignedIn() {
+        return request.auth != null;
+      }
+      
 
-    // This rule allows anyone with your Firestore database reference to view, edit,
-    // and delete all data in your Firestore database. It is useful for getting
-    // started, but it is configured to expire after 30 days because it
-    // leaves your app open to attackers. At that time, all client
-    // requests to your Firestore database will be denied.
-    //
-    // Make sure to write security rules for your app before that time, or else
-    // all client requests to your Firestore database will be denied until you Update
-    // your rules
-    match /{document=**} {
-      allow read, write: if request.time < timestamp.date(2025, 12, 8);
+      function isOwner(userId) {
+        return request.auth.uid == userId;
+      }
+
+      match /users/{userId} {
+
+        allow read: if isSignedIn() && isOwner(userId);
+        allow create, update: if isSignedIn() && isOwner(userId);
+        allow delete: if false;
+      }
+
+      match /weaves/{weaveId} {
+        allow read: if isSignedIn();
+        allow create: if isSignedIn();
+        allow update: if isSignedIn() && 
+          request.auth.uid in resource.data.admins;
+        allow delete: if isSignedIn() && 
+          request.auth.uid in resource.data.admins;
+      }
+      
+      match /polls/{pollId} {
+        allow read, write: if isSignedIn();
+      }
+
+      match /comments/{commentId} {
+        allow read, write: if isSignedIn();
+      }
     }
-  }
 }

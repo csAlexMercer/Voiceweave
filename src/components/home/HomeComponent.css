@@ -1,0 +1,101 @@
+.home-container {
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 40px 20px;
+}
+
+.home-header {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.home-header h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome-message {
+    font-size: 18px;
+    color: #666;
+}
+
+.quick-actions {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.action-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.action-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.action-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.action-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+.trending-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trending-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.trending-placeholder {
+    background: white;
+    padding: 60px 20px;
+    border-radius: 12px;
+    text-align: center;
+    color: #999;
+}
+
+.trending-placeholder .note {
+    font-size: 12px;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .home-header h1 {
+        font-size: 28px;
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}
