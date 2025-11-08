@@ -1,0 +1,140 @@
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 440px;
+    width: 100%;
+}
+
+.auth-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.auth-subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 14px;
+}
+
+.auth-methods {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    background: #f5f5f5;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.auth-methods button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.auth-methods button.active {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-form input {
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.auth-form button {
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.auth-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.auth-toggle {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.auth-toggle span {
+    color: #667eea;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.auth-toggle span:hover {
+    text-decoration: underline;
+}
+
+.anonymous-note {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+#recaptcha-container {
+    margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+    
+    .auth-title {
+        font-size: 28px;
+    }
+}
