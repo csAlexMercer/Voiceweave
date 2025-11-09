@@ -28,13 +28,18 @@ const Layout = ({ children }) => {
     );
 };
 
+const PublicOnlyRoute = ({ children }) => {
+    const { currentUser } = useAuth();
+    return currentUser ? <Navigate to="/home" replace /> : children;
+};
+
 function App() {
     return (
         <AuthProvider>
           <Router>
             <Layout>
               <Routes>
-                <Route path="/" element={<AuthComponent />} />
+                <Route path="/" element={<PublicOnlyRoute><AuthComponent /></PublicOnlyRoute>} />
                 <Route
                   path="/home"
                   element={
@@ -85,6 +90,22 @@ function App() {
                   element={
                     <ProtectedRoute>
                       <WeaveDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/weave/:weaveId/create-poll"
+                  element={
+                    <ProtectedRoute>
+                      <CreatePollComponent />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/poll/:pollId"
+                  element={
+                    <ProtectedRoute>
+                      <PollComponent />
                     </ProtectedRoute>
                   }
                 />
